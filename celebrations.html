@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Aman!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <style>
+      .nav-links .special-link {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 700;
+      }
+
+      .nav-links .special-link::after {
+        background: var(--accent-color);
+      }
+
+      .cinematic-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 5px;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .parallax-image {
+        position: relative;
+        overflow: hidden;
+        height: 350px;
+        border-radius: 15px;
+        margin: 30px 0;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .parallax-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.1);
+      }
+
+      .quote-container {
+        background: rgba(255, 255, 255, 0.1);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 15px;
+        margin: 40px 0;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transform: perspective(1000px) rotateX(5deg);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .quote-text {
+        font-size: 1.5rem;
+        font-style: italic;
+        line-height: 1.8;
+        position: relative;
+      }
+
+      .quote-text::before,
+      .quote-text::after {
+        content: '"';
+        font-size: 4rem;
+        color: var(--primary-color);
+        opacity: 0.3;
+        position: absolute;
+      }
+
+      .quote-text::before {
+        top: -30px;
+        left: -20px;
+      }
+
+      .quote-text::after {
+        bottom: -60px;
+        right: -20px;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .photo-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        transform: translateY(0);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .photo-item .hover-text {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0.8) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 3;
+        text-align: center;
+        color: white;
+      }
+
+      .photo-item .hover-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+      }
+
+      .photo-item .hover-text p {
+        font-size: 1rem;
+        line-height: 1.6;
+        transform: translateY(10px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+      }
+
+      .photo-item:hover .hover-text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .photo-item:hover .hover-text h3,
+      .photo-item:hover .hover-text p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .photo-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .photo-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .photo-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.2) 50%,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .photo-item:hover::after {
+        opacity: 1;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        position: relative;
+        text-align: center;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Enhanced premium styling for memories section */
+      .memories {
+        padding: 80px 20px;
+        position: relative;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: 20px;
+        margin: 30px 0;
+      }
+
+      .memories::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 30% 50%,
+            rgba(255, 95, 109, 0.05) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            circle at 70% 20%,
+            rgba(255, 195, 113, 0.05) 0%,
+            transparent 70%
+          );
+        z-index: -1;
+        border-radius: 20px;
+      }
+
+      .memories .section-title {
+        font-size: 3.5rem;
+        margin-bottom: 60px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+      }
+
+      .memories .section-title::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .memories-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--light-color);
+        padding: 0 20px;
+      }
+
+      .memories-slider {
+        margin-top: 60px;
+        margin-bottom: 80px;
+        padding-bottom: 70px;
+      }
+
+      .swiper-slide {
+        transform: scale(0.85);
+        transition: transform 0.5s;
+        filter: brightness(0.7);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .swiper-slide-active {
+        transform: scale(1);
+        filter: brightness(1);
+      }
+
+      .swiper-pagination {
+        bottom: 20px !important;
+      }
+
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.3);
+        opacity: 1;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        width: 30px;
+        border-radius: 6px;
+      }
+
+      .timeline {
+        position: relative;
+        padding: 20px 0;
+        margin-top: 80px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          var(--primary-color),
+          var(--secondary-color),
+          var(--accent-color)
+        );
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        border-radius: 2px;
+        opacity: 0.7;
+      }
+
+      .timeline-item {
+        padding: 40px 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .timeline-content {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .timeline-content h3 {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        color: white;
+        padding: 20px 30px;
+        margin: 0;
+        font-size: 1.6rem;
+        position: relative;
+      }
+
+      .timeline-content p {
+        padding: 20px 30px;
+        margin: 0;
+        line-height: 1.8;
+      }
+
+      .timeline-image {
+        height: 250px;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .timeline-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 70%,
+          rgba(0, 0, 0, 0.7)
+        );
+      }
+
+      .timeline-image img {
+        transition: transform 0.8s ease;
+      }
+
+      .timeline-content:hover .timeline-image img {
+        transform: scale(1.1) rotate(2deg);
+      }
+
+      .timeline-date {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        z-index: 3;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        top: 40px;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-date {
+        right: -30px;
+      }
+
+      .timeline-item:nth-child(even) .timeline-date {
+        left: -30px;
+      }
+
+      .memory-caption {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: white;
+        font-size: 0.9rem;
+        z-index: 2;
+      }
+
+      .milestone-counter {
+        display: flex;
+        justify-content: space-around;
+        margin: 50px 0;
+        flex-wrap: wrap;
+      }
+
+      .counter-item {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .counter-value {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .counter-label {
+        font-size: 1rem;
+        color: black;
+      }
+
+      .message-banner {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 60px 40px;
+        margin: 50px 0;
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .message-banner h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .message-banner p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        max-width: 800px;
+      }
+
+      .burst-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      @media (max-width: 1200px) {
+        .photo-grid {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .photo-grid {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+
+        .photo-item {
+          aspect-ratio: 4/3;
+        }
+      }
+
+      /* Special layout for first image */
+      .photo-item:first-child {
+        grid-column: span 2;
+        aspect-ratio: 16/9;
+      }
+
+      /* Add animation for grid items */
+      .photo-item {
+        opacity: 0;
+        animation: fadeInUp 0.6s ease forwards;
+        animation-delay: calc(var(--photo-index, 0) * 0.1s);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .photo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        padding: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        perspective: 1000px;
+        margin-bottom: 30px;
+      }
+
+      .polaroid {
+        background: white;
+        padding: 15px 15px 60px 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        transform: rotate(0deg) translateY(0);
+        transition: all 0.4s ease-out;
+        text-align: center;
+      }
+
+      .polaroid:hover {
+        transform: rotate(random(-3, 3) deg) translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .polaroid img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 2px;
+        margin-bottom: 10px;
+      }
+
+      .polaroid .caption {
+        font-family: "Permanent Marker", cursive;
+        font-size: 1.2rem;
+        color: #333;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+
+    <header>
+      <nav>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#wishes">Wishes</a>
+          <a href="#gallery">Gallery</a>
+          <a href="intro.html" class="special-link">Who is Aman?</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="cinematic-title animate__animated animate__fadeInDown">
+            Happy Birthday!
+          </div>
+          <div
+            class="friend-name animate__animated animate__fadeInUp animate__delay-1s"
+          >
+            <span class="name-text">Aman</span>
+          </div>
+          <div
+            class="cake-container animate__animated animate__zoomIn animate__delay-2s"
+          >
+            <div class="cake">
+              <div class="candle">
+                <div class="flame"></div>
+              </div>
+            </div>
+          </div>
+          <p class="animate__animated animate__fadeIn animate__delay-3s">
+            Ye toh tune bilkul expect nahi kiya hoga 😂
+          </p>
+
+          <div class="milestone-counter">
+            <div class="counter-item">
+              <div class="counter-value" id="daysCounter">0</div>
+              <div class="counter-label">Days Since we know each other</div>
+            </div>
+            <div class="counter-item">
+              <div class="counter-value" id="memoriesCounter">0</div>
+              <div class="counter-label">Memories Made</div>
+            </div>
+            <div class="counter-item">
+              <div class="counter-value" id="laughsCounter">0</div>
+              <div class="counter-label">Laughs Shared</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="quote-container">
+        <p class="quote-text">Tu toh bada shaktishali hai bhai 🥵</p>
+      </div>
+
+      <div class="message-banner">
+        <div class="burst-animation">
+          <lottie-player
+            src="https://assets9.lottiefiles.com/packages/lf20_rovf9gzu.json"
+            background="transparent"
+            speed="0.6"
+            style="width: 100%; height: 100%"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <h2>To The Man of His Words</h2>
+        <p>
+          Tere saath bitaya har ek pal, chahe wo no direction ki jamming ho, yaa
+          phir pithoo ka tournament ho, yaa phir normally class mein baith kar
+          bakwas karna hi kyu na ho, har ek moment memorable raha hai aur I hope
+          aage bhi aisa hi rahe teri wo pyari si muskan hamesha itni pyari rahe
+        </p>
+      </div>
+
+      <section id="wishes" class="wishes">
+        <h2 class="section-title">Birthday Wishes</h2>
+        <div class="wish-container">
+          <div class="wish-card">
+            <i class="ri-heart-fill"></i>
+            <p>
+              May this day brings you the peace that you have wanted for so long
+              but could not express
+            </p>
+          </div>
+          <div class="wish-card">
+            <i class="ri-cake-2-fill"></i>
+            <p>
+              Wishing you a day filled with happiness and a year filled with
+              joy!
+            </p>
+          </div>
+          <div class="wish-card">
+            <i class="ri-star-fill"></i>
+            <p>You are never alone biradar</p>
+          </div>
+          <div class="wish-card">
+            <i class="ri-award-fill"></i>
+            <p>
+              You deserve all the happiness in the world because you bring
+              happiness to everyone around you!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="photo-grid">
+        <div class="photo-item" style="--photo-index: 0">
+          <img src="photos/DSC05059.JPG" alt="Photo 1" />
+          <div class="hover-text">
+            <h3>The Adventurer</h3>
+            <p>
+              Jab Pehli baar mila tha tab socha bhi nahi tha itna samay saath
+              mein bitayega
+            </p>
+          </div>
+        </div>
+        <div class="photo-item" style="--photo-index: 1">
+          <img src="photos/body.jpg" alt="Photo 2" />
+          <div class="hover-text">
+            <h3>The Achiever</h3>
+            <p>
+              Teri fitness ko dekh kar aaj bhi mai inspire hota hu to do better
+              in life
+            </p>
+          </div>
+        </div>
+        <div class="photo-item" style="--photo-index: 2">
+          <img src="photos/cool.jpg" alt="Photo 3" />
+          <div class="hover-text">
+            <h3>Hot Stuff</h3>
+            <p>You just cannot take a bad picture of this hot guy</p>
+          </div>
+        </div>
+        <div class="photo-item" style="--photo-index: 3">
+          <img src="photos/gymboi.jpg" alt="Photo 4" />
+          <div class="hover-text">
+            <h3>Nangu Pangu</h3>
+            <p>Jab dekho kapde utaarne ko ready rehta hai</p>
+          </div>
+        </div>
+        <div class="photo-item" style="--photo-index: 4">
+          <img src="photos/gymboi2.jpg" alt="Photo 5" />
+          <div class="hover-text">
+            <h3>A Lovely Soul</h3>
+            <p>Humesha camera dekh kar pagla jaata hai</p>
+          </div>
+        </div>
+        <div class="photo-item" style="--photo-index: 5">
+          <img src="photos/trip.jpg" alt="Photo 6" />
+          <div class="hover-text">
+            <h3>The Explorer</h3>
+            <p>Pahado mein shadi karwa do koi iski</p>
+          </div>
+        </div>
+        <div class="photo-item" style="--photo-index: 5">
+            <img src="photos/last.jpg" alt="Photo 6" />
+            <div class="hover-text">
+                <h3>The Molester</h3>
+                <p>Shakal toh dekho iski</p>
+            </div>
+        </div>
+        <div class="photo-item" style="--photo-index: 5">
+            <img src="photos/nd.jpg" alt="Photo 6" />
+            <div class="hover-text">
+                <h3>The Best Part</h3>
+                <p>Thank You for being a part of this</p>
+            </div>
+        </div>
+      </div>
+
+      <section id="gallery" class="gallery">
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="gallery-container">
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/hot.jpg" alt="Fun times together" />
+              <p class="caption">Photogenic hota jaa raha hai</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/wow.jpg" alt="That trip we took" />
+              <p class="caption">Kidhar jhaank rahe ho janaab?</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/hehe.jpg" alt="Remember this day?" />
+              <p class="caption">Someday, I will</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/20240111_153201.jpg" alt="Good old memories" />
+              <p class="caption">That Legendary Day</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/rain.jpg" alt="Fun times together" />
+              <p class="caption">When life peaked</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/smarty.jpg" alt="That trip we took" />
+              <p class="caption">Just a random day</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/happy.jpg" alt="Remember this day?" />
+              <p class="caption">Happy Happy Happy</p>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="polaroid">
+              <img src="photos/random.jpg" alt="Good old memories" />
+              <p class="caption">Good old memories</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="quote-container">
+        <p class="quote-text">
+            Smile more, and never let that "AMAN" waali vibe die
+        </p>
+      </div>
+
+      <section class="birthday-message">
+        <div class="message-content">
+          <h2>A Special Message For You</h2>
+          <p>
+            Pehli baar jab mila tha tujhse, kabhi socha nahi tha ki 3 saal baad bhi connected rahega... 
+            "Rehne de bhai, uske piche AMAN SHARMA hai", tujhe aise introduce kiya karta tha sabke saamne
+            Hamesha sochta tha ki bhai banda toh ye hai... Shuru mein hamesha football mein meri goalkeeping ki position khane me lage rehna,
+             Wo ganji khopdi le kar haste hue apni dukh bhari phone chori hone ki kahani sunana...
+          </p>
+          <p>
+            Phir aaya sanjay van ka din, pehla dayout, pehli baar humne ek dusre ko jaana, samjha, interests match hue 
+            aur shuru hui ek kahani jisme emotions, fun, drama, bitching, gossiping, rona, comfort karna, shayari, geet gaana aur na jaane kya kya shaamil hota raha... 
+            Future mein ho sakta hai sab log out of touch ho jaaye, ho sakta hai hum connected na rahe (I hope aisa bilkul na ho but kal kisne hi dekha hai), But I'll never stop being grateful to you being in my life
+          </p>
+          <p>
+            Fast forward to today, aaj jab tere paas ye pahuchega tab tak hum tere ghar pe surprise deliver kar chuke honge
+            , most probably tu ye padh ke emotional feel karega, overwhelmed sa ho jayega itna sab dekh kar, but phir bhi... You deserve it mere brother from another mother...
+            Happy Birthday one-third of No Direction, an integral part of my life, a constant... Happy Birthday A-Man
+          </p>
+          <div class="signature">Your Friend</div>
+          <div class="hidden-message" title="Click to reveal a hidden message">
+            🎁
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="celebrate-button" id="celebrateBtn">
+        <span>Celebrate!</span>
+      </div>
+      <p>Made with <i class="ri-heart-fill"></i> for a special friend</p>
+      <div class="hidden-message-trigger">🔍</div>
+    </footer>
+
+    <div class="confetti-container" id="confetti"></div>
+
+    <div class="secret-message-container">
+      <div class="secret-message">
+        <div class="close-btn">&times;</div>
+        <h3>A Secret Message For You</h3>
+        <p>
+          Hamesha aise hi muskurate rehna, aur aise hi slayyy karte rehna
+        </p>
+        
+        <div class="secret-code">
+          Once Again Happy Birthday <span>Aman</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="easter-eggs">
+      <span class="egg" data-message="You found a hidden message! Keep smiling!"
+        >🌟</span
+      >
+      <span class="egg" data-message="Another secret! You're awesome!">🎈</span>
+      <span
+        class="egg"
+        data-message="You're the best friend anyone could ask for!"
+        >🎵</span
+      >
+      <span
+        class="egg"
+        data-message="May your year be filled with endless opportunities!"
+        >✨</span
+      >
+      <span
+        class="egg"
+        data-message="Your friendship is a treasure I cherish every day."
+        >🎭</span
+      >
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Rellax for parallax effects
+        var rellax = new Rellax(".rellax");
+
+        // Animated counters
+        function animateCounter(elementId, targetValue, duration) {
+          const element = document.getElementById(elementId);
+          const startTime = Date.now();
+          const startValue = parseInt(element.textContent);
+
+          function updateCounter() {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+
+            if (elapsedTime < duration) {
+              const progress = elapsedTime / duration;
+              const currentValue = Math.floor(
+                progress * (targetValue - startValue) + startValue
+              );
+              element.textContent = currentValue;
+              requestAnimationFrame(updateCounter);
+            } else {
+              element.textContent = targetValue;
+            }
+          }
+
+          updateCounter();
+        }
+
+        // Initialize counters when they become visible
+        const counterObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCounter("daysCounter", 828, 2000); // 5 years in days
+                animateCounter("memoriesCounter", 1000000000, 2000);
+                animateCounter("laughsCounter", 9999, 2000);
+                observer.unobserve(entry.target);
+              }
+            });
+          }
+        );
+
+        const counterSection = document.querySelector(".milestone-counter");
+        if (counterSection) {
+          counterObserver.observe(counterSection);
+        }
+
+        // GSAP animations for elements
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate quote containers
+        gsap.utils.toArray(".quote-container").forEach((container) => {
+          gsap.from(container, {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: container,
+              start: "top 80%",
+              end: "top 50%",
+              toggleActions: "play none none none",
+            },
+          });
+        });
+
+        // Animate photo grid items
+        gsap.utils.toArray(".photo-item").forEach((item, index) => {
+          gsap.from(item, {
+            y: 50,
+            opacity: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            scrollTrigger: {
+              trigger: item.parentElement,
+              start: "top 80%",
+              end: "top 60%",
+              toggleActions: "play none none none",
+            },
+          });
+        });
+
+        // Animate message banner
+        gsap.from(".message-banner", {
+          scale: 0.9,
+          opacity: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: ".message-banner",
+            start: "top 80%",
+            end: "top 60%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
